@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple User Crud</title>
+    <style>
+      * {
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-size: 20px;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      a {
+        color: black;
+      }
+    </style>
+  </head>
+  <body bgcolor="#39B54A" text="white">
+    <h1>Welcome to CODEMY</h1>
+    <h3>auth api for testing</h3>
+    <ul>
+      <li>
+        POST <a href="http://localhost:8080/api/auth/admin">/auth/admin</a>
+        <br />
+        <b>body: { email: { type: String},password: { type: String }}</b
+        ><br /><b>query:{}</b>
+      </li>
+      <li>
+        POST <a href="http://localhost:8080/api/auth/user">/auth/user</a>
+        <br />
+        <b>body: { email: { type: String},password: { type: String }}</b
+        ><br /><b>query:{}</b>
+      </li>
+    </ul>
+    <h3>api for testing</h3>
+    <ul>
+      <li>
+        POST <a href="http://localhost:8080/api/users">/users</a> <br />
+        <b
+          >body: { firstName: { type: String}, lastName: { type: String}, email:
+          { type: String }, dateOfBirth: { type: String }, password: { type:
+          String }}</b
+        ><br /><b>query:{}</b>
+      </li>
+      <li>
+        GET <a href="http://localhost:8080/api/users">/users</a><br />
+        <b>body:{}</b><br /><b
+          >query:{ limit:Number || 10, page: Number || 1 }</b
+        >
+      </li>
+      <li>
+        GET ONE
+        <a href="http://localhost:8080/api/users/mongoose_id">/user/:id</a
+        ><br />
+        <b>body:{}</b><br /><b>query:{}</b>
+      </li>
+      <li>
+        PUT <a href="http://localhost:8080/api/users/mongoose_id">/users/:id</a>
+        <br />
+        <b
+          >body: { firstName: { type: String}, lastName: { type: String}, email:
+          { type: String }, dateOfBirth: { type: String }, password: { type:
+          String }}</b
+        ><br /><b>query:{}</b>
+      </li>
+      <li>
+        DETELE ONE
+        <a href="http://localhost:8080/api/users/mongoose_id">/user/:id</a
+        ><br />
+        <b>body:{}</b><br /><b>query:{}</b>
+      </li>
+    </ul>
+
+    <b>url dagi mongoose_id ni o'rniga mongodb id ni qo'yib jo'nating !</b>
+  </body>
+</html>
