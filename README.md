@@ -29,3 +29,6 @@ user auth
     "password":"yourpassword"
     
 }
+
+![image](https://github.com/user-attachments/assets/0d637b6a-cb50-4d5b-8fef-544dbfc43ce5)
+
