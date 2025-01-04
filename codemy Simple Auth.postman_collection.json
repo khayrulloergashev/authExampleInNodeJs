@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "d3e533ec-b14c-4557-a947-1ba62f94ceb2",
+		"name": "codemy Simple Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22809301"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "add New user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Xusrav\",\r\n    \"lastName\":\"Muxtorov\",\r\n    \"email\":\"xusrav@gmail.com\",\r\n    \"dateOfBirth\":\"21-06-2005\",\r\n    \"password\":\"qwerty987\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api}}/users"
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/users?limit=10&page=1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one user by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api}}/users/6777b66598ada4f75465b393"
+					},
+					"response": []
+				},
+				{
+					"name": "update one user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Xayrullo\",\r\n    \"lastName\":\"Ergashev\",\r\n    \"email\":\"xayrullodev@gmail.com\",\r\n    \"dateOfBirth\":\"05-05-2005\",\r\n    \"password\":\"qwerty111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api}}/users/6777b66598ada4f75465b393"
+					},
+					"response": []
+				},
+				{
+					"name": "delete one user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api}}/users/6777b66598ada4f75465b393"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "admin auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"token\");\r",
+									"    const responseJson = pm.response.json();\r",
+									"\r",
+									"\r",
+									"    pm.collectionVariables.set(\"token\", responseJson.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"codemy@gmail.com\",\r\n    \"password\":\"codemy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api}}/auth/admin"
+					},
+					"response": []
+				},
+				{
+					"name": "user auth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"token\");\r",
+									"    const responseJson = pm.response.json();\r",
+									"\r",
+									"\r",
+									"    pm.collectionVariables.set(\"token\", responseJson.token);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"xusrav@gmail.com\",\r\n    \"password\":\"qwerty987\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{api}}/auth/user"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "h",
+			"type": "string"
+		}
+	]
+}
