@@ -30,7 +30,7 @@ user auth
     
 }
 
-Api
+postman api
 
 ![image](https://github.com/user-attachments/assets/ed181c8e-9efa-49d1-872d-1672538c837b)
 
